@@ -24,7 +24,7 @@
       Vite Docs
     </a>
     |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
+    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 DocsVue 3 DocsVue 3 DocsVue 3 Docs</a>
   </p>
 
   <button type="button" @click="count++">count is: {{ count }}</button>
