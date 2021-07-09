@@ -5,14 +5,13 @@
     </div>
 
     <div class="bottom">
-      <div class="left">
-        <Nav />
-      </div>
-
       <div class="right">
         <div class="content">
           <router-view />
         </div>
+      </div>
+      <div class="left">
+        <Nav />
       </div>
     </div>
   </main>
@@ -61,19 +60,14 @@ $left-side-width = 80px
     width 100%
     height 100%
     display flex
+    flex-direction column
     justify-content space-between
-    .left {
-      position relative
-      width $left-side-width
-      height 100%
-      box-sizing border-box
-    }
     .right {
       position relative
       width 100%
       height 100%
       box-sizing border-box
-      padding 0 10px 10px 10px
+      // padding 0 10px 10px 10px
       .content {
         position relative
         width 100%
@@ -81,8 +75,15 @@ $left-side-width = 80px
         background $background-color
         border-radius 5px
         box-sizing border-box
-        padding 10px
+        // padding 10px
       }
+    }
+    .left {
+      position relative
+      width 100%
+      height 60px
+      bottom 0px
+      box-sizing border-box
     }
   }
 }

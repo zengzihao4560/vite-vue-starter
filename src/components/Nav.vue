@@ -1,15 +1,12 @@
 <template>
   <aside class="nav">
     <ul class="nav-list">
-      <li
-        class="nav-item flex-center"
-        v-for="(nav, index) in navList"
-        :key="index"
-        :class="{ active: nav.isActive }"
-        @click="navClick(nav)"
-      >
-        {{ nav.name }}
-      </li>
+      <li class="nav-item flex-center"
+        href="" v-for="(nav, index) in navList"
+          :key="index"
+          :class="{ active: nav.isActive }"
+          @click="navClick(nav)"
+        >{{ nav.name }}</li>
     </ul>
   </aside>
 </template>
@@ -43,6 +40,11 @@ export default defineComponent({
           name: 'Test',
           isActive: false,
           path: '/test'
+        },
+        {
+          name: 'Practice',
+          isActive: false,
+          path: '/practice'
         }
       ],
       navClick(e: NavItem) {
@@ -83,11 +85,13 @@ export default defineComponent({
   box-sizing border-box
   background: #fff
   .nav-list {
+    height 100%
     .nav-item {
-      box-sizing border-box
-      width 100%
+      display inline-block
+      width 20%
       height 60px
-      cursor pointer
+      line-height 60px
+      text-align center
       &.active {
         font-weight bold
         background $second-background-color

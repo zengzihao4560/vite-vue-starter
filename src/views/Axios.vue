@@ -71,7 +71,7 @@ export default defineComponent({
       align-items: center;
     }
     .box-card {
-      width: 480px;
+      width: 80%;
     }
   }
 }
