@@ -60,7 +60,7 @@ export default {
 .background_img {
   width: 100%;
   height: 100%;
-  background-image: url('src/assets/bg.jpeg');
+  background-image: url('../bg.jpeg');
   background-repeat: repeat-x;
   background-size: 100% 100%;
 }
