@@ -1,6 +1,9 @@
 <template>
   <div class="background_img">
-    <div class="empty_box"></div>
+    <div class="empty_box">
+      <div class="zgyc_img">
+      </div>
+    </div>
     <div class="form_div">
       <el-card class="box-card" :body-style="{padding: '10px'}">
         <template #header>
@@ -60,13 +63,20 @@ export default {
 .background_img {
   width: 100%;
   height: 100%;
-  background-image: url('../bg.jpeg');
+  background-image: url('../../bg.jpeg');
   background-repeat: repeat-x;
   background-size: 100% 100%;
 }
 .empty_box {
   height: 90px;
+  justify-content center
+  display flex
 }
+
+.zgyc_img {
+  background-image: url('../../zgyc_img');
+}
+
 .card-header {
   justify-content: center;
   display: flex;
