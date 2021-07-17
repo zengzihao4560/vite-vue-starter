@@ -171,7 +171,7 @@
           </div>
         </td>
       </tr>
-      <tr height="300"></tr>
+      <tr height="30%"></tr>
     </table>
   </div>
 </template>
@@ -202,6 +202,7 @@ input {
 }
 .main {
   background: url(../../bg.jpeg) repeat-x;
+  height: 100%;
 }
 .zgyc {
   background: url(../../zgyc.jpg) no-repeat;
@@ -257,4 +258,5 @@ input {
   height: 24px;
   border: 0;
 }
+
 </style>
