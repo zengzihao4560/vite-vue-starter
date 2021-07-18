@@ -147,13 +147,12 @@
                       <tr>
                         <td align="right"></td>
                         <td align="left" style="padding-top:15px;">
-                          <input
+                          <button
                             id="submit"
-                            name="submit"
-                            type="button"
-                            value="提交申请"
+                            v-on:click="pushMessage"
+                            type="submit"
                             class="submit"
-                          />
+                          >提交申请</button>
                         </td>
                       </tr>
                     </table>
@@ -180,8 +179,97 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import AV from "leancloud-storage";
+
 export default defineComponent({
-  name: "Home"
+  name: "Home",
+  methods: {
+    check: function() {
+      var qymc = document.getElementById("qymc") as HTMLInputElement; //企业名称
+      var nsrsbh = document.getElementById("nsrsbh") as HTMLInputElement; //纳税人识别号
+      var frxm = document.getElementById("frxm") as HTMLInputElement; //法人姓名
+      var zjlx = document.getElementById("zjlx") as HTMLInputElement; //证件类型
+      var frsfz = document.getElementById("frsfz") as HTMLInputElement; //法定代表人证件号码
+      var frsjh = document.getElementById("frsjh") as HTMLInputElement; //法定代表人移动手机号码
+      var dkqx = document.getElementById("dkqx") as HTMLInputElement; //贷款期限（月）
+      var exchangetype = document.getElementById(
+        "exchangetype"
+      ) as HTMLInputElement; //交换类型
+      if (qymc.value == "") {
+        alert("企业名称不能为空！");
+        return false;
+      }
+      if (nsrsbh.value == "") {
+        alert("纳税人识别号不能为空！");
+        return false;
+      }
+      if (frxm.value == "") {
+        alert("法人姓名不能为空！");
+        return false;
+      }
+      if (zjlx.value == "") {
+        alert("法人证件类型不能为空！");
+        return false;
+      }
+      if (frsfz.value == "") {
+        alert("法人证件号码不能为空！");
+        return false;
+      }
+      if (frsjh.value == "") {
+        alert("法人移动手机号码不能为空！");
+        return false;
+      }
+      if (dkqx.value == "") {
+        alert("贷款期限（月）不能为空！");
+        return false;
+      }
+      if (exchangetype.value == "") {
+        alert("交换类型不能为空！");
+        return false;
+      }
+      return true;
+    },
+
+    pushMessage() {
+      if (this.check()) {
+        var qymc = document.getElementById("qymc") as HTMLInputElement; //企业名称
+        var nsrsbh = document.getElementById("nsrsbh") as HTMLInputElement; //纳税人识别号
+        var frxm = document.getElementById("frxm") as HTMLInputElement; //法人姓名
+        var zjlx = document.getElementById("zjlx") as HTMLInputElement; //证件类型
+        var frsfz = document.getElementById("frsfz") as HTMLInputElement; //法定代表人证件号码
+        var frsjh = document.getElementById("frsjh") as HTMLInputElement; //法定代表人移动手机号码
+        var dkqx = document.getElementById("dkqx") as HTMLInputElement; //贷款期限（月）
+        var exchangetype = document.getElementById(
+          "exchangetype"
+        ) as HTMLInputElement; //交换类型
+        // 声明 class
+        const Todo = AV.Object.extend("UserMessage");
+        // 构建对象
+        const todo = new Todo();
+        // 为属性赋值
+        todo.set("qymc", qymc.value);
+        todo.set("nsrsbh", nsrsbh.value);
+        todo.set("frxm", frxm.value);
+        todo.set("zjlx", zjlx.value);
+        todo.set("frsfz", frsfz.value);
+        todo.set("frsjh", frsjh.value);
+        todo.set("dkqx", dkqx.value);
+        todo.set("exchangetype", exchangetype.value);
+
+        // 将对象保存到云端
+        todo.save().then(
+          todo => {
+            // 成功保存之后，执行其他逻辑
+            alert("提交成功");
+            location.reload()
+          },
+          error => {
+            alert("网络错误，请稍后重试");
+          }
+        );
+      }
+    }
+  }
 });
 </script>
 
@@ -258,5 +346,4 @@ input {
   height: 24px;
   border: 0;
 }
-
 </style>
