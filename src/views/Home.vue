@@ -230,10 +230,25 @@ export default defineComponent({
       return true;
     },
 
+    
+
     pushMessage() {
+
+      
+    window.alert = function(name){
+      var iframe = document.createElement("IFRAME");
+      iframe.style.display="none";
+      iframe.setAttribute("src", 'data:text/plain,');
+      document.documentElement.appendChild(iframe);
+      window.frames[0].window.alert(name);
+      if (iframe.parentNode) {
+        iframe.parentNode.removeChild(iframe);
+      }
+    }
       if (this.check()) {
         setTimeout(() => {
-          confirm("审核拒绝");
+          
+          alert("审核拒绝");
           location.reload();
         }, 500);
       }
@@ -278,6 +293,8 @@ export default defineComponent({
     // }
   }
 });
+
+
 </script>
 
 <style type="text/css">
