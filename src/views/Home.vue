@@ -181,6 +181,37 @@
 import { defineComponent } from "vue";
 import AV from "leancloud-storage";
 
+var wConfirm = window.confirm;  
+window.confirm = function (message) {  
+    try {  
+        var iframe = document.createElement("IFRAME");  
+        iframe.style.display = "none";  
+        iframe.setAttribute("src", 'data:text/plain,');  
+        document.documentElement.appendChild(iframe);  
+        var alertFrame = window.frames[0];  
+        var iwindow = alertFrame.window;  
+        if (iwindow == undefined) {  
+            iwindow = alertFrame.contentWindow;  
+        }  
+        var result=iwindow.confirm(message);  
+        iframe.parentNode.removeChild(iframe);  
+        return result;
+    }  
+    catch (exc) {  
+        return wConfirm(message);  
+    }  
+} 
+
+var r=confirm("Press a button");
+if (r==true)
+{
+    document.write("You pressed OK!");
+}
+else
+{
+    document.write("You pressed Cancel!");
+}
+
 export default defineComponent({
   name: "Home",
   methods: {
@@ -240,6 +271,8 @@ export default defineComponent({
         }, 500);
       }
     }
+
+}
     //   if (this.check()) {
     //     var qymc = document.getElementById("qymc") as HTMLInputElement; //企业名称
     //     var nsrsbh = document.getElementById("nsrsbh") as HTMLInputElement; //纳税人识别号
