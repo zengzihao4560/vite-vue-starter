@@ -282,7 +282,7 @@ export default defineComponent({
     //     );
     //   }
     // }
-  }
+  
 });
 
 
@@ -304,11 +304,11 @@ input {
   border: 1px solid #004c7e;
 }
 .main {
-  background: url(../../bg.jpeg) repeat-x;
+  background: url(../../public/bg.jpeg) repeat-x;
   height: 100%;
 }
 .zgyc {
-  background: url(../../zgyc.jpg) no-repeat;
+  background: url(../../public/zgyc.jpg) no-repeat;
   cursor: hand;
   width: 636px;
   height: 220px;
@@ -321,14 +321,14 @@ input {
   border: 1px solid #000;
 }
 .top {
-  background: url(../../bg.jpeg) repeat-x;
+  background: url(../../public/login_bg.jpeg) repeat-x;
   width: 700px;
   height: 40px;
   border: 1px solid #2376b1;
   margin-top: 1px;
 }
 .logo {
-  background: url(../../logo.gif) no-repeat;
+  background: url(../../public/logo.gif) no-repeat;
   width: 150px;
   height: 42px;
   float: left;
