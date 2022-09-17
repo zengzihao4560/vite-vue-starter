@@ -308,7 +308,7 @@ input {
   height: 100%;
 }
 .zgyc {
-  background: url(../../public/xylogo.jpg) no-repeat;
+  background: url(../../public/xylogo.png) no-repeat;
   cursor: hand;
   width: 636px;
   height: 220px;
