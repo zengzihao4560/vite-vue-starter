@@ -10,7 +10,7 @@
         <td align="center">
           <div class="login">
             <div class="top">
-              <div class="updatePassword">邮政储蓄银行结果查询</div>
+              <div class="updatePassword">兴业银行结果查询</div>
             </div>
             <table width="700" cellpadding="0" cellspacing="0">
               <tbody>
